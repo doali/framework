@@ -46,14 +46,14 @@ _Exemple repris du tuto d'openclassrooms_
 
 > Les propriétés d'un component peuvent être injectées depuis le component parent
 
-*Déclaration, définition, ...*
+**Déclaration, définition, ...**
 - on créé tout d'abord un modèle de données `FaceSnap` présent dans `src/app/models/face-snap.model.ts`
-- on définit dans le component `FaceSnapComponent` un attribut `@Input() faceSnap!: FaceSnap;` qui sera peuplé par son parent
-- on créé dans le parent des instances du modèle `oneFaceSnap!: FaceSnap;`, `anotherFaceSnap!: FaceSnap;`, ...
-  - que l'on initialise `[...] this.oneFaceSnap = new FaceSnap( [...]`, `[...] this.anotherFaceSnap = new FaceSnap( [...]`, ...
+- on définit dans le component `FaceSnapComponent` un attribut `@Input() faceSnap!: FaceSnap;` qui sera peuplé par son parent `AppComponent`
+- on créé dans le parent des instances du modèle `oneFaceSnap!: FaceSnap;` et pour `anotherFaceSnap!: FaceSnap;`
+  - que l'on initialise `[...] this.oneFaceSnap = new FaceSnap( [...]` et pour `[...] this.anotherFaceSnap = new FaceSnap( [...]`
 
-*Liaisons*
-- on réalise la liaison entre le component et son parent dans la vue du parent `src/app/app.component.html`
+**Liaisons**
+- on réalise la liaison entre le component `FaceSnapComponent` et son parent `AppComponent` dans la **vue** du parent `src/app/app.component.html` grace à l'*attribute binding*.
 ```html
 <app-face-snap [faceSnap]="oneFaceSnap"></app-face-snap>
 <app-face-snap [faceSnap]="anotherFaceSnap"></app-face-snap>
@@ -61,7 +61,7 @@ _Exemple repris du tuto d'openclassrooms_
 
 ### Création
 
-`ng generate component face-snap` va générer un répertoire contenenant entre autre le symbole `FaceSnapComponent`
+`ng generate component face-snap` va générer un répertoire contenenant entre autre la classe `FaceSnapComponent`
 
 ## Bindings (liaisons)
 ### String interpolation `{{ }}`

@@ -10,7 +10,7 @@ export class FaceSnapComponent {
   snapped!: boolean;
   buttonText!: string;
   // imageUrl!: string;
-  @Input() faceSnap!: FaceSnap;
+  @Input() faceSnap!: FaceSnap; // peut-être utilisé lors de l'attribute binding
 
   ngOnInit() {
     this.snapped = false;
