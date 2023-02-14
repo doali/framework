@@ -26,9 +26,15 @@ RUN apt-get update && apt-get install -y \
   tree
 
 VOLUME /volume/data
+
+# SSH
 EXPOSE 22
-EXPOSE 4200 # ng serve
-EXPOSE 8000 # python3 -m http.server 8000
+
+# Angular: ng serve
+EXPOSE 4200
+
+# Http server: python3 -m http.server 8000
+EXPOSE 8000 
 
 RUN useradd -rm -d /home/ubuntu -s /bin/bash -G sudo -u ${UID} ubuntu \
   && echo "ubuntu:${PASSWORD}" | chpasswd
