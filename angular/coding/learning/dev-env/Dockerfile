@@ -27,6 +27,8 @@ RUN apt-get update && apt-get install -y \
 
 VOLUME /volume/data
 EXPOSE 22
+EXPOSE 4200 # ng serve
+EXPOSE 8000 # python3 -m http.server 8000
 
 RUN useradd -rm -d /home/ubuntu -s /bin/bash -G sudo -u ${UID} ubuntu \
   && echo "ubuntu:${PASSWORD}" | chpasswd
@@ -48,7 +50,8 @@ RUN cd /home/ubuntu \
 RUN bash -c 'source home/ubuntu/.nvm/nvm.sh \
   && nvm install node \
   && npm install -g doctoc urchin eclint dockerfile_lint \
-  && npm install --prefix "/home/ubuntu/.nvm/"'
+  && npm install --prefix "/home/ubuntu/.nvm/" \
+  && npm install -g @angular/cli'
 
 USER ubuntu
 
