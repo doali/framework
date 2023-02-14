@@ -15,14 +15,12 @@ export class FaceSnapComponent {
   ngOnInit() {
     this.snapped = false;
     this.buttonText = "Snap me !";
-    // this.imageUrl = "./assets/img/ginkgo_1.png";
-    // this.imageUrl = "https://images.vexels.com/media/users/3/316639/isolated/lists/e096aaed41b1fa15921450147f547b63-ginkgo-biloba-flat-leaves.png";
   }
 
   onSnap() {
     if (this.snapped == false) {
       this.faceSnap.snaps++;
-      this.snapped = true;      
+      this.snapped = true;
     } else {
       this.faceSnap.snaps--;
       this.snapped = false;
