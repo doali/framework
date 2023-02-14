@@ -31,10 +31,12 @@ VOLUME /volume/data
 EXPOSE 22
 
 # Angular: ng serve
+# http://localhost:4200
 EXPOSE 4200
 
 # Http server: python3 -m http.server 8000
-EXPOSE 8000 
+# http://localhost:8000
+EXPOSE 8000
 
 RUN useradd -rm -d /home/ubuntu -s /bin/bash -G sudo -u ${UID} ubuntu \
   && echo "ubuntu:${PASSWORD}" | chpasswd
