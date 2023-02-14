@@ -42,6 +42,23 @@ _Exemple repris du tuto d'openclassrooms_
 > Le framework lors de la création d'une instance du composant invoquera à sa création la méthode `ngOnInit()` \
 > C'est donc un moyen d'initialiser le composant
 
+### Injection
+
+> Les propriétés d'un component peuvent être injectées depuis le component parent
+
+*Déclaration, définition, ...*
+- on créé tout d'abord un modèle de données `FaceSnap` présent dans `src/app/models/face-snap.model.ts`
+- on définit dans le component `FaceSnapComponent` un attribut `@Input() faceSnap!: FaceSnap;` qui sera peuplé par son parent
+- on créé dans le parent des instances du modèle `oneFaceSnap!: FaceSnap;`, `anotherFaceSnap!: FaceSnap;`, ...
+  - que l'on initialise `[...] this.oneFaceSnap = new FaceSnap( [...]`, `[...] this.anotherFaceSnap = new FaceSnap( [...]`, ...
+
+*Liaisons*
+- on réalise la liaison entre le component et son parent dans la vue du parent `src/app/app.component.html`
+```html
+<app-face-snap [faceSnap]="oneFaceSnap"></app-face-snap>
+<app-face-snap [faceSnap]="anotherFaceSnap"></app-face-snap>
+```
+
 ### Création
 
 `ng generate component face-snap` va générer un répertoire contenenant entre autre le symbole `FaceSnapComponent`
