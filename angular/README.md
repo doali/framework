@@ -79,7 +79,7 @@ _Exemple repris du tuto d'openclassrooms_
 
 > `<button (click)="onAddSnap()">Oh Snap!</button>` lie la méthode `onAddSnap()` définie dans le `.ts` à l'évènement `click`
 
-## Directives et pipes
+## Directives
 
 > Classe qui opère sur un élément du DOM
 
@@ -112,9 +112,67 @@ ou encore
 ```html
 <app-face-snap [faceSnap]="element" *ngFor="let element of faceSnaps"></app-face-snap>
 ```
-
+## Pipes
 ## Services
 ## Routage
+## Styles
+
+### Static
+
+Le comportement des styles est le suivant
+
+- portée limitée au component uniquement
+- pas d'héritage (pour les components enfants)
+
+Ainsi, pour le component `FaceSnapComponent` le styles définis dans `face-snap.component.scss`
+
+```css
+.face-snap-card {
+    width: 35%;
+
+    img {
+        width: 100%;
+    }
+}
+```
+
+ont une portée limitée dans la déclaration `<app-face-snap ...></app-face-snap>` à ce qui est défini dans `face-snap.component.html`
+
+```html
+<div class="face-snap-card">
+  ...
+</div>
+```
+
+> Les styles et les classes seront donc encapsulés
+
+- /!\ Seul le fichier `styles.scss` permet de déclarer des styles globaux
+
+### Dynamic
+
+Avec les directives par attribut `[...]`
+
+- Avec la directive `[ngStyle]`
+  - une clef indique le style CSS à modifier
+  - une valeur indique la valeur associée au style
+
+```html
+<span [ngStyle]="{ color: 'rgb(0, ' + faceSnap.snaps * 255 + ', 0)' }">{{ faceSnap.snaps }}</span>
+```
+
+> [ngStyle] ajoute une propriété en @Input qui est identifiée par ngStyle, la créé et la lie directement 
+
+- Avec `[ngClass]`
+  - une clef indique le **nom** de classe du CSS à appliquer
+  - une valeur indique une expression conditionnelle
+
+```html
+<div class="face-snap-card" [ngClass]="{ snapped: faceSnap.snaps == 1}">
+  ...
+</div>
+```
+
+> `<div [ngClass]="{ 'class-name': condition }"></div>`
 
 ## Biblio
 
