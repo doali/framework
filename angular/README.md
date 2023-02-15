@@ -85,7 +85,7 @@ _Exemple repris du tuto d'openclassrooms_
 
 ### Directives structurelles `*ng...`
 
-`*ngIf=<expression>` évaluée à *truthy* permet d'ajouter un élément dans le DOM (retiré si falsy)
+- `*ngIf=<expression>` évaluée à *truthy* permet d'ajouter un élément dans le DOM (retiré si falsy)
 
 ```html
 <p *ngIf="faceSnap.location">Présent en {{ faceSnap.location }}</p>
@@ -98,6 +98,20 @@ ou encore sur des components
 ```
 
 > Réfléchir lorsqu'on utilise une évaluation de fonction dans l'expression... problèmes de performance ?
+
+- `*ngFor` permet d'itérer sur un tableau (ou tout autre itérable) et d'insérer dans le DOM les éléments du tableau.
+
+```html
+<div *ngFor="let element of faceSnaps">
+    <app-face-snap [faceSnap]="element"></app-face-snap>
+</div>
+```
+
+ou encore
+
+```html
+<app-face-snap [faceSnap]="element" *ngFor="let element of faceSnaps"></app-face-snap>
+```
 
 ## Services
 ## Routage

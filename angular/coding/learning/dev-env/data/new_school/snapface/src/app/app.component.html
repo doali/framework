@@ -1,8 +1,6 @@
 <style>
 </style>
 
-<app-face-snap [faceSnap]="oneFaceSnap"></app-face-snap>
-<app-face-snap [faceSnap]="anotherFaceSnap"></app-face-snap>
-<app-face-snap [faceSnap]="lastFaceSnap" *ngIf="lastFaceSnap.imageUrl"></app-face-snap>
+<app-face-snap [faceSnap]="element" *ngFor="let element of faceSnaps"></app-face-snap>
 
 <router-outlet></router-outlet>
