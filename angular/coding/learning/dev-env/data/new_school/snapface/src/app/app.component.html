@@ -3,5 +3,6 @@
 
 <app-face-snap [faceSnap]="oneFaceSnap"></app-face-snap>
 <app-face-snap [faceSnap]="anotherFaceSnap"></app-face-snap>
+<app-face-snap [faceSnap]="lastFaceSnap" *ngIf="lastFaceSnap.imageUrl"></app-face-snap>
 
 <router-outlet></router-outlet>

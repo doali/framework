@@ -80,6 +80,25 @@ _Exemple repris du tuto d'openclassrooms_
 > `<button (click)="onAddSnap()">Oh Snap!</button>` lie la méthode `onAddSnap()` définie dans le `.ts` à l'évènement `click`
 
 ## Directives et pipes
+
+> Classe qui opère sur un élément du DOM
+
+### Directives structurelles `*ng...`
+
+`*ngIf=<expression>` évaluée à *truthy* permet d'ajouter un élément dans le DOM (retiré si falsy)
+
+```html
+<p *ngIf="faceSnap.location">Présent en {{ faceSnap.location }}</p>
+```
+
+ou encore sur des components
+
+```html
+<app-face-snap [faceSnap]="lastFaceSnap" *ngIf="lastFaceSnap.imageUrl"></app-face-snap>
+```
+
+> Réfléchir lorsqu'on utilise une évaluation de fonction dans l'expression... problèmes de performance ?
+
 ## Services
 ## Routage
 
