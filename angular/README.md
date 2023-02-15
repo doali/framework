@@ -142,6 +142,9 @@ Exemple pour le pipe [DatePipe](https://angular.io/api/common/DatePipe)
 - [AsyncPipe](https://angular.io/api/common#pipes)
 
 ## Services
+
+> Permet de mutualiser des données, des actions, (CRUD par exemple)...
+
 ## Routage
 ## Styles
 
