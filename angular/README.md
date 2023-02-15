@@ -113,6 +113,34 @@ ou encore
 <app-face-snap [faceSnap]="element" *ngFor="let element of faceSnaps"></app-face-snap>
 ```
 ## Pipes
+
+> Permet de formater un donnée (par exemple reçue du backend) mais de conserver sa valeur (pour par exemple conserver le format de ce qui a été reçu)
+
+*String*
+Exemple de pipe
+- LowerCasePipe `<p *ngIf="faceSnap.location">Présent en {{ faceSnap.location | lowercase}}</p>`
+- UpperCasePipe `<button (click)="onSnap()">{{ buttonText | uppercase}}</button>`
+- TitleCasePipe `<h2>{{ faceSnap.title | titlecase }}</h2>`
+
+*Date*
+> On peut configurer un pipe au moyen de `:`
+
+Exemple pour le pipe [DatePipe](https://angular.io/api/common/DatePipe)
+- sans configuration `<p>Mis en ligne le {{ faceSnap.createdDate | date }}</p>`
+- avec configuration `<p>Mis en ligne {{ faceSnap.createdDate | date: 'à HH:mm, le d MMMM yyyy' }}</p>`
+
+> On ne peut les utiliser que dans le fichier template à savoir le `.html` (par exemple face-snap.component.html)
+
+*Nombre*
+
+- DecimalPipe `<p>{{ 1234567.89 | number: '1.0-0' }}</p>`
+- PercentPipe `<p>{{ 0.123 | percent }}</p>`
+- CurrencyPipe
+
+*Observable*
+
+- [AsyncPipe](https://angular.io/api/common#pipes)
+
 ## Services
 ## Routage
 ## Styles
