@@ -12,7 +12,7 @@ Technologies : `HTML, CSS (SCSS, LESS), Typescript, Javascript`
 
 ## Création application
 
-_Exemple repris du tuto d'openclassrooms_
+_Exemple repris du [tuto débuter avec angular](https://openclassrooms.com/fr/courses/7471261-debutez-avec-angular) d'openclassrooms_
 
 `ng new snapface --style=scss --skip-tests=true`
 
@@ -25,14 +25,14 @@ _Exemple repris du tuto d'openclassrooms_
 
 - lancer le serveur au sein du conteneur `ubuntu@78bd6ae1f595:/volume/data/new_school/snapface$ ng serve --host 0.0.0.0`
   - depuis un client dans le conteneur `curl http://localhost:4200`
-  - depuis un client de l'hôte (firefox, curl) `http://localhost:4242` selon le port mappé 4242:4200 dans ce cas
-    - ou `http://127.0.0.1:4242`
+  - depuis un client de l'hôte (firefox, curl) `http://localhost:4242` selon le port mappé `-p 4242:4200` dans ce cas
+    - ou `http://127.0.0.1:4242` (ou directement l'adresse IP si le chargement est trop long...)
 
 > Le point d'entrée de l'application
 - d'un point de vue HTML est le fichier `index.html` contenant la paire de balises `<app-root></app-root>`
 - d'un point de vue composant `AppComponent` est le composant racine de l'application
 
-## Components
+## Components : décorateur `@Component`
 > C'est l'association du tryptique
 - `.scss` vue `SCSS, CSS, LESS`
 - `.ts` controleur `Typescript`
@@ -62,6 +62,8 @@ _Exemple repris du tuto d'openclassrooms_
 ### Création
 
 `ng generate component face-snap` va générer un répertoire contenenant entre autre la classe `FaceSnapComponent`
+
+> `ng g c face-snap` pour la commande avec raccourcis
 
 ## Bindings (liaisons)
 ### String interpolation `{{ }}`
@@ -141,9 +143,38 @@ Exemple pour le pipe [DatePipe](https://angular.io/api/common/DatePipe)
 
 - [AsyncPipe](https://angular.io/api/common#pipes)
 
-## Services
+## Services : décorateur `@Injectable`
 
 > Permet de mutualiser des données, des actions, (CRUD par exemple)...
+
+- Création
+
+`ng generate service face-snap` va générer un répertoire contenenant entre autre la classe `FaceSnapsService`
+
+> Préférable de créer un répertoire `service` sous `app`
+
+```javascript
+providedIn: 'root'
+```
+
+> Indique que le service sera disponible à la racine de l'application et qu'il n'existera qu'**une** seule instance
+
+- Injection
+
+> Il suffit de passer le service au constructeur du component
+
+```javascript
+export class FaceSnapListComponent implements OnInit {
+  faceSnaps!: FaceSnap[];
+
+  constructor(private faceSnapsService: FaceSnapsService) { }
+
+  ngOnInit(): void {
+    // this.faceSnaps = this.faceSnapsService.getAllFaceSnaps();
+    this.faceSnaps = this.faceSnapsService.faceSnaps;
+  }
+}
+```
 
 ## Routage
 ## Styles

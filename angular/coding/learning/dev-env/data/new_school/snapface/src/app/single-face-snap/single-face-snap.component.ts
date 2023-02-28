@@ -28,7 +28,7 @@ export class SingleFaceSnapComponent {
   }
 
   onSnap() {
-    if (this.snapped == false) {
+    if (this.snapped === false) {
       this.faceSnapsService.snapFaceSnapById(this.faceSnap.id, 'snap');
       this.snapped = true;
     } else {
