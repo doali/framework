@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { FaceSnapsService } from '../services/face-snaps.service';
 
 @Component({
   selector: 'app-landing-page',
