@@ -2,7 +2,7 @@
     <h2>{{ faceSnap.title | titlecase }}</h2>
     <img [src]="faceSnap.imageUrl" [alt]="faceSnap.title">
     <p>Mis en ligne {{ faceSnap.createdDate | date: 'à HH:mm, le d MMMM yyyy' }}</p>
-    <p>{{ faceSnap.createdDate |date: 'le d MMMM yyyy' }}</p>
+    <p>{{ faceSnap.createdDate | date: 'le d MMMM yyyy' }}</p>
     <p>{{ faceSnap.description }}</p>
     <p *ngIf="faceSnap.location">Présent en {{ faceSnap.location | lowercase }}</p>
     <p>
